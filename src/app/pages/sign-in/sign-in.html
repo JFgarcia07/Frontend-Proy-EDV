@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <div class="mx-auto w-50">
+    <h1 style="text-align: center;">Crea tu Cuenta</h1>
+    <br/>
+    
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      
+      <div class="mb-3">
+        <label for="idUsuario" class="form-label">ID Usuario</label>
+        <input type="text" class="form-control" id="idUsuario" formControlName="idUsuario" placeholder="Ingresa tu DPI o crea un ID único">
+      </div>
+
+      <div class="mb-3">
+        <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
+        <input type="text" class="form-control" id="nombreUsuario" formControlName="nombreUsuario" placeholder="Ingresa tu nombre de usuario">
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="ejemplo@correo.com">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="*******">
+      </div>
+
+      <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento">
+      </div>
+
+      <div class="mb-3">
+        <label for="pais" class="form-label">País</label>
+        <input type="text" class="form-control" id="pais" formControlName="pais" placeholder="Ingresa tu país">
+      </div>
+
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="tel" class="form-control" id="telefono" formControlName="telefono" placeholder="Ingresa tu número de teléfono">
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">
+        Registrar
+      </button>
+
+    </form>
+  </div>
+</div>
