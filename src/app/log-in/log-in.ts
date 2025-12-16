@@ -29,6 +29,9 @@ export class LogIn {
         console.log('logIn ok: ', respuesta)
 
         if(respuesta.succes === true){
+
+          localStorage.setItem('idGlobal', respuesta.idUsuario);
+          console.log(localStorage.getItem('idGlobal'))
           this.router.navigate(['/inicio']);
         } else {
           alert("Usuario o contraseña incorrectas");

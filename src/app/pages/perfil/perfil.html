@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="" class="card-img-top"
+                    alt="Foto de perfil">
+                <div class="card-body text-center">
+                    <h3 class="card-title"></h3>
+                    <a href=""
+                        class="btn btn-sm btn-outline-primary">Editar Perfil</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Información Personal</h5>
+                    @if (datosUsuario){
+                        <p><strong>ID Usuario: {{idUsuario}}</strong></p>
+                        <p><strong>Nombre de Usuario: {{datosUsuario.nombre}}</strong></p>
+                        <p><strong>Email: {{datosUsuario.email}}</strong></p>
+                        <p><strong>Fecha de nacimiento: {{datosUsuario.fecha}}</strong></p>
+                        <p><strong>País: {{datosUsuario.pais}}</strong></p>
+                        <p><strong>Teléfono: {{datosUsuario.telefono}}</strong></p>
+                        <p><strong>Billetera Digital (Q): {{datosUsuario.billetera}}</strong></p>
+                        <p><strong>Tipo de Usuario: {{datosUsuario.rol}}</strong></p>
+                    } @else {
+                        <p><strong>Cargando datos ...</strong></p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
