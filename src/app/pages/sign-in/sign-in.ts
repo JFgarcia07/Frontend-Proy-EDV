@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -13,7 +14,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class SignIn {
   registroForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient){
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router){
     this.registroForm = this.fb.group({
       idUsuario: ['',  Validators.required],
       nombreUsuario: ['',  Validators.required],
@@ -35,6 +36,8 @@ export class SignIn {
         next: (res) => {
           console.log('EXITO', res);
           alert('Usuario registrado correctamente');
+
+          this.router.navigate(['']);
         },
         error: (err) => {
           console.log('Error', err);
