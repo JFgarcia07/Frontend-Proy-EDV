@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class="container mt-5"> 
+    <h1 class="text-center mb-4">Gestor de Empresas</h1>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <span>Lista de Empresas</span>
+            <a routerLink="/crear-empresa" class="btn btn-light btn-sm">
+                <i class="bi bi-plus-circle"></i> + Crear Nueva Empresa
+            </a>
+        </div>
+        
+        <div class="card-body">
+            
+            @if (cargando) {
+                <div class="text-center p-3">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p>Cargando empresas...</p>
+                </div>
+            } @else {
+
+                @if (empresas.length > 0) {
+                    <table class="table table-striped table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Id Empresa</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Comisión (%)</th> <th>Estado</th> 
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (empresa of empresas; track empresa.idEmpresa) {
+                                <tr>
+                                    <td>{{ empresa.idEmpresa }}</td>
+                                    <td>{{ empresa.nombreEmpresa }}</td>
+                                    <td>{{ empresa.descripcion }}</td>
+                                    
+                                    <td>{{ empresa.comisionEspecifica }}%</td>
+
+                                    <td>
+                                        <span [class]="empresa.activo ? 'badge bg-success' : 'badge bg-secondary'">
+                                            {{ empresa.activo ? 'Activo' : 'Inactivo' }}
+                                        </span>
+                                    </td>
+                                    
+                                    <td>
+                                        <a [routerLink]="['/registro-usuario-empresa', empresa.idEmpresa]" class=" btn btn-success">
+                                            Asignar Usuario
+                                        </a>
+
+                                        <a [routerLink]="['/editar-empresa', empresa.idEmpresa]" class="btn btn-sm btn-warning me-1">
+                                            Editar
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                } @else {
+                    <p class="text-center text-muted p-4">No hay empresas registradas.</p>
+                }
+            }
+        </div>
+    </div>
+</div>

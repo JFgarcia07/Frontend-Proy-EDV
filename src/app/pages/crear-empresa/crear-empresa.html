@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="mx-auto w-50">
+        <h1 style="text-align: center;">Registro de Empresas</h1>
+        <br />
+
+        <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+                <label for="idEmpresa" class="form-label">ID Empresa</label>
+                <input type="text" class="form-control" id="idEmpresa" formControlName="idEmpresa"
+                    placeholder="Ingresa el Id de la empresa">
+            </div>
+
+            <div class="mb-3">
+                <label for="nombreEmpresa" class="form-label">Nombre de la Empresa</label>
+                <input type="text" class="form-control" id="nombreEmpresa" formControlName="nombreEmpresa"
+                    placeholder="Ingresa el nombre de la empresa">
+            </div>
+
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+
+                <textarea class="form-control" id="descripcion" formControlName="descripcion"
+                    placeholder="Ingrese un descripcion de la empresa"></textarea>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="comisionEspecifica" class="form-label">Porcentaje de comision especifica</label>
+                <input type="text" class="form-control" id="comisionEspecifica" formControlName="comisionEspecifica" placeholder="Ingrese la comision especifica si tiene" [value]="0">
+            </div>
+
+            <div class="mb-3">
+                <label for="idComision" class="form-label">Tipo de Comisión</label>
+                <label>(Si tiene un porcentaje especifico,seleccione cualquier opcion)</label>
+                <select class="form-select" id="idComision" formControlName="idComision">
+                    <option value="" disabled selected>Seleccione una opción</option>
+
+                    @for (item of listaComisiones; track item.idComision) {
+
+                    <option [value]="item.idComision">
+
+                        {{ item.idComision }} - ({{ item.porcentaje }}%)
+
+                    </option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">
+                Registrar
+            </button>
+
+        </form>
+    </div>
+</div>
