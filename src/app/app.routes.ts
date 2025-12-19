@@ -7,6 +7,10 @@ import { Billetera } from './pages/billetera/billetera';
 import { GestionEmpresas } from './pages/gestion-empresas/gestion-empresas';
 import { CrearEmpresa } from './pages/crear-empresa/crear-empresa';
 import { RegistroUsuarioEmpresa } from './pages/registro-usuario-empresa/registro-usuario-empresa';
+import { GestionEmpresaDesarrolladora } from './pages/gestion-empresa-desarrolladora/gestion-empresa-desarrolladora';
+import { CrearVideojuego } from './pages/crear-videojuego/crear-videojuego';
+import { ListaUsuariosEmpresa } from './pages/lista-usuarios-empresa/lista-usuarios-empresa';
+import { EditarVideojuego } from './pages/editar-videojuego/editar-videojuego';
 
 export const routes: Routes = [
     {path: '', component:LogIn},
@@ -16,6 +20,10 @@ export const routes: Routes = [
     {path: 'billetera', component: Billetera},
     {path: 'gestion-empresa', component: GestionEmpresas},
     {path: 'crear-empresa', component: CrearEmpresa},
-    {path: 'registro-usuario-empresa/:idEmpresa', component: RegistroUsuarioEmpresa}
+    {path: 'registro-usuario-empresa/:idEmpresa', component: RegistroUsuarioEmpresa},
+    {path: 'gestion-empresa-desarrolladora', component: GestionEmpresaDesarrolladora},
+    {path: 'crear-videojuego', component: CrearVideojuego},
+    {path: 'lista-usuarios-empresa', component: ListaUsuariosEmpresa},
+    {path: 'editar-videojuego/:idJuego', component: EditarVideojuego}
 ];
 

@@ -12,8 +12,12 @@
         <a class="nav-link" href="#">Tienda</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="idRol === 'ADMIN'">
         <a class="nav-link" routerLink="/gestion-empresa" routerLinkActive="active">Gestion Empresas</a>
+      </li>
+
+      <li class="nav-item" *ngIf="idRol === 'EMPRE'">
+        <a class="nav-link" routerLink="/gestion-empresa-desarrolladora" routerLinkActive="active">Gestion de la Empresa</a>
       </li>
 
       <li class="nav-item">
@@ -30,7 +34,7 @@
           </li>
           <li><a class="dropdown-item" routerLink="/billetera">Billetera Digital</a></li>
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#" style="cursor: pointer;">Cerrar Sesion</a></li>
+          <li><a class="dropdown-item" (click)="cerrarSesion()" style="cursor: pointer;">Cerrar Sesion</a></li>
         </ul>
       </li>
     </ul>
