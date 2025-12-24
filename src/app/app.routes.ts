@@ -20,6 +20,7 @@ import { VerCategoriasAsignadas } from './pages/ver-categorias-asignadas/ver-cat
 import { Tienda } from './pages/tienda/tienda';
 import { VerMasJuego } from './pages/ver-mas-juego/ver-mas-juego';
 import { ProcesoCompra } from './pages/proceso-compra/proceso-compra';
+import { Biblioteca } from './pages/biblioteca/biblioteca';
 
 export const routes: Routes = [
     {path: '', component:LogIn},
@@ -42,6 +43,7 @@ export const routes: Routes = [
     {path: 'ver-categorias-asignadas/:idJuego', component: VerCategoriasAsignadas},
     {path: 'tienda', component: Tienda},
     {path: 'ver-mas-juego/:idJuego', component: VerMasJuego},
-    {path: 'proceso-venta/:idJuego', component: ProcesoCompra}
+    {path: 'proceso-venta/:idJuego', component: ProcesoCompra},
+    {path: 'biblioteca', component: Biblioteca}
 ];
 

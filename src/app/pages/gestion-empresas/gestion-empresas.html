@@ -27,7 +27,6 @@
                                 <th>Id Empresa</th>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>Comisión (%)</th> <th>Estado</th> 
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -39,13 +38,6 @@
                                     <td>{{ empresa.descripcion }}</td>
                                     
                                     <td>{{ empresa.comisionEspecifica }}%</td>
-
-                                    <td>
-                                        <span [class]="empresa.activo ? 'badge bg-success' : 'badge bg-secondary'">
-                                            {{ empresa.activo ? 'Activo' : 'Inactivo' }}
-                                        </span>
-                                    </td>
-                                    
                                     <td>
                                         <a [routerLink]="['/registro-usuario-empresa', empresa.idEmpresa]" class=" btn btn-success">
                                             Asignar Usuario
