@@ -68,7 +68,7 @@ export class ProcesoCompra {
       next: (res) => {
         if (res.exito) {
           this.juego = res.juego;
-          this.router.navigate(['/tienda']);
+          this.router.navigate(['/biblioteca']);
         } 
       },
       error: (err) => {
