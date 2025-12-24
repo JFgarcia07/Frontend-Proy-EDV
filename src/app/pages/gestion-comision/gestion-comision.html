@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="container mt-5">
+  <div class="mx-auto w-50">
+    <h1 style="text-align: center;">Gestion Comision Global</h1>
+    <br />
+
+    <form [formGroup]="comisionForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label for="idComision" class="form-label">ID Comision</label>
+        <input
+          type="text"
+          class="form-control"
+          id="idComision"
+          formControlName="idComision"
+          readonly
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="porcentajeComision" class="form-label">Porcentaje de comision (Ingrese un valor entre 0 y 1)</label>
+        <input
+          type="text"
+          class="form-control"
+          id="porcentajeComision"
+          formControlName="porcentajeComision"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="comisionForm.invalid">
+        Actualizar Comision
+      </button>
+
+    </form>
+  </div>
+</div>
