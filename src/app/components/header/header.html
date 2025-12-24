@@ -20,6 +20,10 @@
         <a class="nav-link" routerLink="/gestionar-categorias" routerLinkActive="active">Gestion de Categorias</a>
       </li>
 
+       <li class="nav-item" *ngIf="idRol === 'ADMIN'">
+        <a class="nav-link" routerLink="/gestionar-comision" routerLinkActive="active">Gestion de Comision</a>
+      </li>
+
       <li class="nav-item" *ngIf="idRol === 'EMPRE'">
         <a class="nav-link" routerLink="/gestion-empresa-desarrolladora" routerLinkActive="active">Gestion de la Empresa</a>
       </li>

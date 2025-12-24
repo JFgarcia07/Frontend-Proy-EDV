@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrl: './editar-categoria.css',
 })
 export class EditarCategoria {
-    categoriaForm: FormGroup;
+  categoriaForm: FormGroup;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private route: ActivatedRoute){
     this.categoriaForm = this.fb.group({
