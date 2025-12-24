@@ -1,0 +1,46 @@
+<app-header></app-header>
+<h1 style="text-align: center;">TIENDA DIGITAL</h1>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (juego of listaJuegos; track $index) {
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0 hover-card">
+
+            <div class="position-relative">
+                <img [src]="juego.imagen || 'assets/img/placeholder.jpg'" class="card-img-top" [alt]="juego.titulo"
+                    style="height: 220px; object-fit: cover;">
+
+                <span class="position-absolute top-0 end-0 badge bg-success m-2 fs-6 shadow">
+                    Q{{ juego.precio }} </span>
+            </div>
+
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold text-dark">{{ juego.titulo }}</h5>
+
+                <p class="card-text text-muted flex-grow-1"
+                    style="display: -webkit-box;  -webkit-box-orient: vertical; overflow: hidden;">
+                    {{ juego.descripcion }}
+                </p>
+
+                <div class="mt-3">
+                    <a  [routerLink]="['/ver-mas-juego', juego.idJuego]" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-eye"></i> Ver más
+                    </a>
+                </div>
+                <div class="mt-3">
+                    <a [routerLink]="['/proceso-venta', juego.idJuego]" class="btn btn-outline-primary w-100">
+                        <i class="bi bi-eye"></i> Comprar Videojuego
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    } @empty {
+        <div class="col-12">
+            <div class="alert alert-secondary text-center py-5" role="alert">
+                <i class="bi bi-controller display-4 mb-3 d-block text-muted"></i>
+                <h4 class="alert-heading">No hay juegos disponibles</h4>
+                <p>Parece que el catálogo está vacío en este momento.</p>
+            </div>
+        </div>
+    }
+</div>

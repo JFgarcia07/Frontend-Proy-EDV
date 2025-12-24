@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container py-5">
+    <h1 class="text-center mb-4 fw-bold">Detalles del Juego</h1>
+    @if (juego) {
+        <div class="card shadow border-0">
+            <div class="card-header bg-primary text-white py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="fs-5 fw-semibold">{{ juego.titulo }}</span>
+                    <span class="badge text-bg-light text-dark">
+                        {{ juego.clasificacion }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p class="text-muted mb-2">
+                    <strong>Empresa:</strong> {{ juego.nombreEmpresa }}
+                </p>
+
+                <p class="mb-3">
+                    <strong>Descripción:</strong><br />
+                    {{ juego.descripcion }}
+                </p>
+
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="border rounded p-3 h-100">
+                            <div class="text-muted small">Precio</div>
+                            <div class="fs-5 fw-semibold">Q {{ juego.precio }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="border rounded p-3 h-100">
+                            <div class="text-muted small">Fecha lanzamiento</div>
+                            <div class="fw-semibold">{{ juego.fechaLanzamiento }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="border rounded p-3 h-100">
+                            <div class="text-muted small">Clasificación</div>
+                            <div class="fw-semibold">{{ juego.clasificacion }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="border rounded p-3">
+                            <div class="text-muted small">Recursos mínimos</div>
+                            <div class="fw-semibold">{{ juego.recursosMinimos }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

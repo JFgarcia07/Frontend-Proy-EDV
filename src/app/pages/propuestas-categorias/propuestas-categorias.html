@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div class="container py-5">
+    <h1 class="text-center mb-4 fw-bold">Propuestas de Categoría</h1>
+
+    <div class="card shadow border-0">
+        <div class="card-header bg-primary text-white py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fs-5 fw-semibold">Listado de propuestas pendientes</span>
+
+            </div>
+        </div>
+
+        <div class="card-body p-0">
+            @if (propuestas.length > 0) {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">ID Juego</th>
+                            <th>Empresa</th>
+                            <th>Título</th>
+                            <th>ID Categoría</th>
+                            <th>Categoría propuesta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (propuesta of propuestas; track propuesta.idJuego + '-' + propuesta.idCategoria) {
+                        <tr>
+                            <td class="ps-4">
+                                {{ propuesta.idJuego }}
+                            </td>
+                            <td>{{ propuesta.nombreEmpresa }}</td>
+                            <td>{{ propuesta.tituloJuego }}</td>
+                            <td>{{ propuesta.idCategoria}}</td>
+                            <td>{{ propuesta.nombreCategoria }}</td>
+
+                            <td class="text-end pe-4">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-success"
+                                        (click)="confirmarAceptacion(propuesta.idJuego, propuesta.idCategoria)">
+                                        Aceptar
+                                    </button>
+
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                        (click)="confirmarRechazo(propuesta.idJuego, propuesta.idCategoria)">
+                                        <i class="bi bi-x-circle me-1"></i> Rechazar
+                                    </button>
+                                </div>
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            } @else {
+            <div class="text-center py-5">
+                <p class="text-muted mb-0">No hay propuestas pendientes.</p>
+            </div>
+            }
+        </div>
+    </div>
+</div>

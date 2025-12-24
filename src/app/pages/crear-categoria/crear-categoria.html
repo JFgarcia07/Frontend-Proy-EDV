@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="mx-auto w-50">
+    <h1 style="text-align: center;">Registro de Nueva Categoría</h1>
+    <br />
+
+    <form [formGroup]="categoriaForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label for="idCategoria" class="form-label">ID de la Categoría</label>
+        <input
+          type="text"
+          class="form-control"
+          id="idCategoria"
+          formControlName="idCategoria"
+          placeholder="Ingresa el ID único de la categoría, con un maximo de 3 caracteres"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="nombreCategoria" class="form-label">Nombre de la Categoría</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreCategoria"
+          formControlName="nombreCategoria"
+          placeholder="Ej: Acción, Aventura, RPG..."
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="categoriaForm.invalid">
+        Crear Categoría
+      </button>
+
+    </form>
+  </div>
+</div>

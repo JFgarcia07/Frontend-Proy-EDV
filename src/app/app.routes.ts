@@ -11,6 +11,15 @@ import { GestionEmpresaDesarrolladora } from './pages/gestion-empresa-desarrolla
 import { CrearVideojuego } from './pages/crear-videojuego/crear-videojuego';
 import { ListaUsuariosEmpresa } from './pages/lista-usuarios-empresa/lista-usuarios-empresa';
 import { EditarVideojuego } from './pages/editar-videojuego/editar-videojuego';
+import { GestionCategorias } from './pages/gestion-categorias/gestion-categorias';
+import { CrearCategoria } from './pages/crear-categoria/crear-categoria';
+import { EditarCategoria } from './pages/editar-categoria/editar-categoria';
+import { AsignarCategoria } from './pages/asignar-categoria/asignar-categoria';
+import { PropuestasCategorias } from './pages/propuestas-categorias/propuestas-categorias';
+import { VerCategoriasAsignadas } from './pages/ver-categorias-asignadas/ver-categorias-asignadas';
+import { Tienda } from './pages/tienda/tienda';
+import { VerMasJuego } from './pages/ver-mas-juego/ver-mas-juego';
+import { ProcesoCompra } from './pages/proceso-compra/proceso-compra';
 
 export const routes: Routes = [
     {path: '', component:LogIn},
@@ -24,6 +33,15 @@ export const routes: Routes = [
     {path: 'gestion-empresa-desarrolladora', component: GestionEmpresaDesarrolladora},
     {path: 'crear-videojuego', component: CrearVideojuego},
     {path: 'lista-usuarios-empresa', component: ListaUsuariosEmpresa},
-    {path: 'editar-videojuego/:idJuego', component: EditarVideojuego}
+    {path: 'editar-videojuego/:idJuego', component: EditarVideojuego},
+    {path: 'gestionar-categorias', component: GestionCategorias},
+    {path: 'crear-categoria', component: CrearCategoria},
+    {path: 'editar-categoria/:idCategoria', component: EditarCategoria},
+    {path: 'asignar-categoria/:idJuego', component: AsignarCategoria},
+    {path: 'propuestas-categorias', component: PropuestasCategorias},
+    {path: 'ver-categorias-asignadas/:idJuego', component: VerCategoriasAsignadas},
+    {path: 'tienda', component: Tienda},
+    {path: 'ver-mas-juego/:idJuego', component: VerMasJuego},
+    {path: 'proceso-venta/:idJuego', component: ProcesoCompra}
 ];
 
