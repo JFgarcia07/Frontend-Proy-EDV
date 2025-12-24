@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="mx-auto w-50">
+        <h1 style="text-align: center;">Registro de Nueva Categoría</h1>
+        <br />
+
+        <h6>Puede proponer una o varias categorias para el Videojuego, sujetas a la aprobación del Administrador del Sistema</h6>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+                <label for="idCategoria" class="form-label">ID del Juego</label>
+                <input type="text" class="form-control" id="idJuego" formControlName="idJuego" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label for="idCategoria" class="form-label">Categoría</label>
+
+                <select class="form-select" id="idCategoria" formControlName="idCategoria">
+                    <option value="" disabled selected>
+                        Selecciona una categoría
+                    </option>
+
+                    @for (categoria of categorias; track categoria.idCategoria) {
+                        <option [value]="categoria.idCategoria">
+                            {{ categoria.nombreCategoria }}
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">
+                Asignar Categoría
+            </button>
+
+        </form>
+    </div>
+</div>
