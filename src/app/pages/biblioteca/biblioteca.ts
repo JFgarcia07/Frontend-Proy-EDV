@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-biblioteca',
-  imports: [Header, HttpClientModule, RouterLink],
+  imports: [Header, HttpClientModule],
   templateUrl: './biblioteca.html',
   styleUrl: './biblioteca.css',
 })

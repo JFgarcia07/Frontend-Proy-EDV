@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="mx-auto w-50">
+    <h1 style="text-align: center;">Editar Empresa</h1>
+    <br />
+
+    <form [formGroup]="empresaForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label for="idEmpresa" class="form-label">ID Empresa</label>
+        <input type="text" class="form-control" id="idEmpresa" formControlName="idEmpresa" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label for="nombreEmpresa" class="form-label">Nombre de la Empresa</label>
+        <input type="text" class="form-control" id="nombreEmpresa" formControlName="nombreEmpresa"
+          placeholder="Nombre de la empresa">
+      </div>
+
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3"
+          placeholder="Descripción de la empresa"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="porcentajeEspecifico" class="form-label">Porcentaje Específico (0 a 1)</label>
+        <input type="number" class="form-control" id="porcentajeEspecifico" formControlName="porcentajeEspecifico"
+          step="0.01" min="0" max="1" placeholder="0.00">
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="empresaForm.invalid">
+        Confirmar cambios
+      </button>
+
+    </form>
+  </div>
+</div>
