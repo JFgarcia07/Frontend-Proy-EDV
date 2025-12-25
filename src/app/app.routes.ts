@@ -22,6 +22,7 @@ import { VerMasJuego } from './pages/ver-mas-juego/ver-mas-juego';
 import { ProcesoCompra } from './pages/proceso-compra/proceso-compra';
 import { Biblioteca } from './pages/biblioteca/biblioteca';
 import { GestionComision } from './pages/gestion-comision/gestion-comision';
+import { EditarEmpresa } from './pages/editar-empresa/editar-empresa';
 
 export const routes: Routes = [
     {path: '', component:LogIn},
@@ -46,6 +47,7 @@ export const routes: Routes = [
     {path: 'ver-mas-juego/:idJuego', component: VerMasJuego},
     {path: 'proceso-venta/:idJuego', component: ProcesoCompra},
     {path: 'biblioteca', component: Biblioteca},
-    {path: 'gestionar-comision', component: GestionComision}
+    {path: 'gestionar-comision', component: GestionComision},
+    {path: 'editar-empresa/:idEmpresa', component: EditarEmpresa}
 ];
 

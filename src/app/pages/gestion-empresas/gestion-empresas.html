@@ -36,14 +36,11 @@
                                     <td>{{ empresa.idEmpresa }}</td>
                                     <td>{{ empresa.nombreEmpresa }}</td>
                                     <td>{{ empresa.descripcion }}</td>
-                                    
-                                    <td>{{ empresa.comisionEspecifica }}%</td>
                                     <td>
                                         <a [routerLink]="['/registro-usuario-empresa', empresa.idEmpresa]" class=" btn btn-success">
                                             Asignar Usuario
                                         </a>
-
-                                        <a [routerLink]="['/editar-empresa', empresa.idEmpresa]" class="btn btn-sm btn-warning me-1">
+                                        <a [routerLink]="['/editar-empresa', empresa.idEmpresa]" class="btn btn-warning">
                                             Editar
                                         </a>
                                     </td>

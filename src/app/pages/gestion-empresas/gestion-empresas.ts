@@ -37,4 +37,26 @@ export class GestionEmpresas {
     });
   }
 
+
+  confirmarEliminacion(idEmpresa: any){
+    const ok = confirm('¿Seguro que deseas eliminar la empresa?');
+    if (!ok) return;
+    
+    this.eliminarEmpresa(idEmpresa);
+  }
+
+  eliminarEmpresa(idEmpresa: any){
+    const urlEliminar = `http://localhost:8080/prueba/?id=${idEmpresa}`;
+
+    this.http.get(urlEliminar).subscribe({
+      next: (res) => {
+        alert('Se ha eliminado la empresa');
+      },
+      error: (err) => {
+        console.log(err);
+        alert('No se pudo eliminar la empresa.');
+      }
+    });
+  }
+
 }
