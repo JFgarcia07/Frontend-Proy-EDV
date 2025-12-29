@@ -23,6 +23,7 @@ import { ProcesoCompra } from './pages/proceso-compra/proceso-compra';
 import { Biblioteca } from './pages/biblioteca/biblioteca';
 import { GestionComision } from './pages/gestion-comision/gestion-comision';
 import { EditarEmpresa } from './pages/editar-empresa/editar-empresa';
+import { CalificacionComentarios } from './pages/calificacion-comentarios/calificacion-comentarios';
 
 export const routes: Routes = [
     {path: '', component:LogIn},
@@ -48,6 +49,7 @@ export const routes: Routes = [
     {path: 'proceso-venta/:idJuego', component: ProcesoCompra},
     {path: 'biblioteca', component: Biblioteca},
     {path: 'gestionar-comision', component: GestionComision},
-    {path: 'editar-empresa/:idEmpresa', component: EditarEmpresa}
+    {path: 'editar-empresa/:idEmpresa', component: EditarEmpresa},
+    {path: 'calificacion-comentario/:idJuego', component:CalificacionComentarios}
 ];
 
