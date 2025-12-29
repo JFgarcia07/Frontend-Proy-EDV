@@ -64,6 +64,14 @@
             </div>
 
             <div class="mb-3">
+                <label for="comentarios" class="form-label">Estado de comentarios</label>
+                <select class="form-select" id="comentarios" formControlName="comentarios">
+                    <option [ngValue]="true">Activos</option>
+                    <option [ngValue]="false">Inactivos</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="imagen" class="form-label">Imagen de Portada</label>
                 <input type="file" class="form-control" id="imagen" (change)="onFileSelected($event)" accept="image/*">
             </div>

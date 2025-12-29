@@ -29,6 +29,7 @@ export class EditarVideojuego {
       recursosMinimos: ['', Validators.required],
       clasificacion: ['', Validators.required],
       fechaLanzamiento: ['', Validators.required],
+      comentarios: [true, Validators.required], 
       estadoVenta: [true, Validators.required], 
     });
   }
@@ -75,6 +76,7 @@ export class EditarVideojuego {
             recursosMinimos: data.recursosMinimos,
             clasificacion: data.clasificacion,
             fechaLanzamiento: data.fechaLanzamiento,
+            comentarios: data.comentarios,
             estadoVenta: data.estadoVenta,
           });
 
@@ -124,6 +126,7 @@ export class EditarVideojuego {
       "clasificacion_edad": formValues.clasificacion,
       "fecha_lanzamiento": formValues.fechaLanzamiento,
       "estado_venta": formValues.estadoVenta,
+      "comentarios": formValues.comentarios,
       "imagen": imagenString
     };
 
