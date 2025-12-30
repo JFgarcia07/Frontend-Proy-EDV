@@ -11,7 +11,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class GestionCategorias {
   categorias: any[] = [];
-  cargando: boolean = true;
 
   constructor(private http: HttpClient){}
 
@@ -26,11 +25,9 @@ export class GestionCategorias {
     this.http.get<any[]>(urlBackend).subscribe({
       next: (data) => {
         this.categorias = data;
-        this.cargando = false;
       },
       error: (err) => {
         console.log("Error al obtener las categorias");
-        this.cargando = false;
       }
     })
   }

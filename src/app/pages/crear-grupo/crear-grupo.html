@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+    <div class="mx-auto w-50">
+        <h1 style="text-align: center;">Crear Grupo Familiar</h1>
+        <br />
+
+        <form [formGroup]="grupoForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+                <label for="idGrupo" class="form-label">ID del Grupo</label>
+                <input type="text" class="form-control" id="idGrupo" formControlName="idGrupo"
+                    placeholder="Ingresa el ID único del grupo, este debe tener un maximo de 5 letras" />
+            </div>
+
+            <div class="mb-3">
+                <label for="nombreGrupo" class="form-label">Nombre del Grupo</label>
+                <input type="text" class="form-control" id="nombreGrupo" formControlName="nombreGrupo"
+                    placeholder="Nombre del grupo familiar" />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="grupoForm.invalid">
+                Crear Grupo
+            </button>
+
+        </form>
+    </div>
+</div>

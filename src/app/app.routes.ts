@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './services/auth-guard/auth-guard';
+import { roleGuard } from './services/rol-guard/rol-guard';
+
 import { LogIn } from './log-in/log-in';
 import { Inicio } from './pages/inicio/inicio';
 import { SignIn } from './pages/sign-in/sign-in';
@@ -24,32 +27,45 @@ import { Biblioteca } from './pages/biblioteca/biblioteca';
 import { GestionComision } from './pages/gestion-comision/gestion-comision';
 import { EditarEmpresa } from './pages/editar-empresa/editar-empresa';
 import { CalificacionComentarios } from './pages/calificacion-comentarios/calificacion-comentarios';
+import { GestionGruposFamiliares } from './pages/gestion-grupos-familiares/gestion-grupos-familiares';
+import { CrearGrupo } from './pages/crear-grupo/crear-grupo';
+import { VerGrupoFamiliar } from './pages/ver-grupo-familiar/ver-grupo-familiar';
 
 export const routes: Routes = [
-    {path: '', component:LogIn},
-    {path: 'inicio', component: Inicio},
-    {path: 'signIn', component: SignIn},
-    {path: 'perfil', component: Perfil},
-    {path: 'billetera', component: Billetera},
-    {path: 'gestion-empresa', component: GestionEmpresas},
-    {path: 'crear-empresa', component: CrearEmpresa},
-    {path: 'registro-usuario-empresa/:idEmpresa', component: RegistroUsuarioEmpresa},
-    {path: 'gestion-empresa-desarrolladora', component: GestionEmpresaDesarrolladora},
-    {path: 'crear-videojuego', component: CrearVideojuego},
-    {path: 'lista-usuarios-empresa', component: ListaUsuariosEmpresa},
-    {path: 'editar-videojuego/:idJuego', component: EditarVideojuego},
-    {path: 'gestionar-categorias', component: GestionCategorias},
-    {path: 'crear-categoria', component: CrearCategoria},
-    {path: 'editar-categoria/:idCategoria', component: EditarCategoria},
-    {path: 'asignar-categoria/:idJuego', component: AsignarCategoria},
-    {path: 'propuestas-categorias', component: PropuestasCategorias},
-    {path: 'ver-categorias-asignadas/:idJuego', component: VerCategoriasAsignadas},
-    {path: 'tienda', component: Tienda},
-    {path: 'ver-mas-juego/:idJuego', component: VerMasJuego},
-    {path: 'proceso-venta/:idJuego', component: ProcesoCompra},
-    {path: 'biblioteca', component: Biblioteca},
-    {path: 'gestionar-comision', component: GestionComision},
-    {path: 'editar-empresa/:idEmpresa', component: EditarEmpresa},
-    {path: 'calificacion-comentario/:idJuego', component:CalificacionComentarios}
-];
+  { path: '', component: LogIn },          
+  { path: 'signIn', component: SignIn },  
 
+  { path: 'inicio', component: Inicio, canActivate: [authGuard] },
+  { path: 'perfil', component: Perfil, canActivate: [authGuard] },
+  { path: 'billetera', component: Billetera, canActivate: [authGuard] },
+
+  { path: 'gestion-empresa', component: GestionEmpresas, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
+  { path: 'crear-empresa', component: CrearEmpresa, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
+  { path: 'registro-usuario-empresa/:idEmpresa', component: RegistroUsuarioEmpresa, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']}  },
+
+  { path: 'gestion-empresa-desarrolladora', component: GestionEmpresaDesarrolladora, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
+  { path: 'crear-videojuego', component: CrearVideojuego, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
+  { path: 'lista-usuarios-empresa', component: ListaUsuariosEmpresa, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
+  { path: 'editar-videojuego/:idJuego', component: EditarVideojuego, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
+
+  { path: 'gestionar-categorias', component: GestionCategorias, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
+  { path: 'crear-categoria', component: CrearCategoria, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
+  { path: 'editar-categoria/:idCategoria', component: EditarCategoria, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']}},
+  { path: 'asignar-categoria/:idJuego', component: AsignarCategoria, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
+  { path: 'propuestas-categorias', component: PropuestasCategorias, canActivate: [authGuard] },
+  { path: 'ver-categorias-asignadas/:idJuego', component: VerCategoriasAsignadas, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
+
+  { path: 'tienda', component: Tienda, canActivate: [authGuard] },
+  { path: 'ver-mas-juego/:idJuego', component: VerMasJuego, canActivate: [authGuard] },
+  { path: 'proceso-venta/:idJuego', component: ProcesoCompra, canActivate: [authGuard] },
+
+  { path: 'biblioteca', component: Biblioteca, canActivate: [authGuard] },
+  { path: 'gestionar-comision', component: GestionComision, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
+  { path: 'editar-empresa/:idEmpresa', component: EditarEmpresa, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
+
+  { path: 'calificacion-comentario/:idJuego', component: CalificacionComentarios, canActivate: [authGuard] },
+
+  { path: 'gestion-grupos-familiares', component: GestionGruposFamiliares, canActivate: [authGuard] },
+  { path: 'crear-grupo', component: CrearGrupo, canActivate: [authGuard] },
+  { path: 'ver-grupo-familiar/:idGrupo', component: VerGrupoFamiliar, canActivate: [authGuard] },
+];
