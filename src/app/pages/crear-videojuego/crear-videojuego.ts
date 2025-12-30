@@ -15,15 +15,15 @@ import { Router } from '@angular/router';
   styleUrl: './crear-videojuego.css',
 })
 
-export class CrearVideojuego implements OnInit{
+export class CrearVideojuego implements OnInit {
   juegoForm: FormGroup;
-  
+
   imagenSeleccionada: File | null = null;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.juegoForm = this.fb.group({
       idJuego: ['', Validators.required],
-      idEmpresa: [{ value: '', disabled: true }, Validators.required], 
+      idEmpresa: [{ value: '', disabled: true }, Validators.required],
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required],
       precio: [0, [Validators.required, Validators.min(0)]],
@@ -55,16 +55,16 @@ export class CrearVideojuego implements OnInit{
     if (this.juegoForm.valid) {
       if (this.imagenSeleccionada) {
         const reader = new FileReader();
-        
+
         reader.onload = (e: any) => {
-          const imagenBase64 = e.target.result; 
-          this.enviarDatosBackend(imagenBase64); 
+          const imagenBase64 = e.target.result;
+          this.enviarDatosBackend(imagenBase64);
         };
-        
+
         reader.readAsDataURL(this.imagenSeleccionada);
-        
+
       } else {
-        this.enviarDatosBackend(""); 
+        this.enviarDatosBackend("");
       }
 
     } else {
@@ -93,14 +93,14 @@ export class CrearVideojuego implements OnInit{
     this.http.post(urlBackend, datosParaEnviar).subscribe({
       next: (res: any) => {
         console.log('EXITO', res);
-        
-        if(res.exito) {
-           alert('Juego registrado correctamente');
-           
+
+        if (res.exito) {
+          alert('Juego registrado correctamente');
+
           this.router.navigate(['desarrolladora']);
 
         } else {
-           alert('Atención: ' + res.mensaje);
+          alert('Atención: ' + res.mensaje);
         }
       },
       error: (err) => {
@@ -136,5 +136,5 @@ export class CrearVideojuego implements OnInit{
 
 
 
-  
+
 }

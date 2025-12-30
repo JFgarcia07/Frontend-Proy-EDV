@@ -16,10 +16,7 @@ export class LogIn {
   email = '';
   password = '';
 
-  constructor(
-    private  logInService: LogInService,
-    private router: Router
-  ) {}
+  constructor(private  logInService: LogInService, private router: Router) {}
 
   iniciarSesion() {
     this.logInService.Auth(this.email, this.password).subscribe({
@@ -35,6 +32,7 @@ export class LogIn {
           localStorage.setItem('idEmpresa', respuesta.idEmpresa);
 
           console.log(localStorage.getItem('idEmpresa'))
+          console.log(localStorage.getItem('idRol'))
           this.router.navigate(['/inicio']);
         } else {
           alert("Usuario o contraseña incorrectas");
