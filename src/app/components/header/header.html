@@ -1,13 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="/inicio" routerLinkActive="active">Inicio</a>
 
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/tienda">Tienda</a>
       </li>
@@ -20,36 +21,44 @@
         <a class="nav-link" routerLink="/gestionar-categorias" routerLinkActive="active">Gestion de Categorias</a>
       </li>
 
-       <li class="nav-item" *ngIf="idRol === 'ADMIN'">
+      <li class="nav-item" *ngIf="idRol === 'ADMIN'">
         <a class="nav-link" routerLink="/gestionar-comision" routerLinkActive="active">Gestion de Comision</a>
       </li>
 
       <li class="nav-item" *ngIf="idRol === 'EMPRE'">
-        <a class="nav-link" routerLink="/gestion-empresa-desarrolladora" routerLinkActive="active">Gestion de la Empresa</a>
+        <a class="nav-link" routerLink="/gestion-empresa-desarrolladora" routerLinkActive="active">Gestion de la
+          Empresa</a>
+      </li>
+
+      <li class="nav-item" *ngIf="idRol === 'ADMIN'">
+        <a class="nav-link" routerLink="/gestion-banner" routerLinkActive="active">Gestion del Banner</a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" routerLink="/gestion-grupos-familiares">Grupo Familiar</a>
       </li>
-      
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Perfil
         </a>
         <ul class="dropdown-menu">
           <li>
-              <a class="dropdown-item" routerLink="/perfil" routerLinkActive="active">Perfil</a>
+            <a class="dropdown-item" routerLink="/perfil" routerLinkActive="active">Perfil</a>
           </li>
           <li><a class="dropdown-item" routerLink="/billetera">Billetera Digital</a></li>
           <li><a class="dropdown-item" routerLink="/biblioteca">Biblioteca de Juegos</a></li>
-          <li><hr class="dropdown-divider"></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
           <li><a class="dropdown-item" (click)="cerrarSesion()" style="cursor: pointer;">Cerrar Sesion</a></li>
         </ul>
       </li>
     </ul>
 
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Buscar en la Tienda">
+    <form class="d-flex" (ngSubmit)="buscar()">
+      <input class="form-control me-2" type="search" placeholder="Buscar Juego por ID o Nombre" name="entrada"
+        [(ngModel)]="entrada">
       <button class="btn btn-outline-success" type="submit">Buscar</button>
     </form>
   </div>

@@ -1,43 +1,5 @@
-  <app-header></app-header>
-
-  @if (banners.length > 0) {
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      @for (img of banners; track $index) {
-      <div class="carousel-item" [class.active]="$index === 0">
-        <img [src]="img" class="d-block w-100 banner-img" alt="Slide {{ $index + 1 }}">
-      </div>
-      }
-
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-  } @else {
-    <div class="text-center text-muted py-4">
-      No hay imágenes en el banner.
-    </div>
-  }
-
-<div class="explorar-container">
-  <h6 class="explorar-title" style="text-align: center;">EXPLORA</h6>
-
-  <div class="explorar-botones" style="text-align: center;">
-    <button class="btn explorar-btn" routerLink="/juegos-recientes" >JUEGOS RECIENTES</button>
-    <button class="btn explorar-btn" routerLink="/lista-empresas" >EMPRESAS DESARROLLADORAS</button>
-    <button class="btn explorar-btn" routerLink="/juegos-gratis" >JUEGOS GRATUITOS</button>
-    <button class="btn explorar-btn" routerLink="/juegos-por-categoria" >POR CATEGORIAS</button>
-  </div>
-</div>
-
-<h2 style="text-align: center;">JUEGOS RECOMENDADOS</h2>
+<app-header></app-header>
+<h1 style="text-align: center;">TIENDA DIGITAL</h1>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @for (juego of listaJuegos; track $index) {
     <div class="col">
@@ -82,4 +44,3 @@
         </div>
     }
 </div>
-

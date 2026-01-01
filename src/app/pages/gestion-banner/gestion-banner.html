@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="container py-5">
+    <h1 class="text-center mb-4 fw-bold">Gestión Banner Principal</h1>
+
+    <div class="card shadow border-0">
+        <div class="card-body">
+
+            <div class="mb-3">
+                <label class="form-label">Selecciona imágenes</label>
+                <input type="file" class="form-control" accept="image/*" multiple (change)="onFilesSelected($event)" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Orden inicial</label>
+                <input type="number" class="form-control" [(ngModel)]="ordenInicial" min="1" />
+            </div>
+
+            <button class="btn btn-primary w-100" (click)="guardarBanner()">
+                Guardar Banner
+            </button>
+
+            <hr class="my-4" />
+
+            @if (imagenes.length > 0) {
+            <p class="text-muted mb-2">Vista previa:</p>
+
+            <div class="d-flex flex-wrap gap-2">
+                @for (img of imagenes; track $index) {
+                <img [src]="img" class="rounded border" style="width: 140px; height: 90px; object-fit: cover;"
+                    alt="preview" />
+                }
+            </div>
+            } @else {
+            <p class="text-muted mb-0">Aún no has seleccionado imágenes.</p>
+            }
+
+        </div>
+    </div>
+</div>

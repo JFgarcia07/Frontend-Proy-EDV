@@ -30,6 +30,13 @@ import { CalificacionComentarios } from './pages/calificacion-comentarios/califi
 import { GestionGruposFamiliares } from './pages/gestion-grupos-familiares/gestion-grupos-familiares';
 import { CrearGrupo } from './pages/crear-grupo/crear-grupo';
 import { VerGrupoFamiliar } from './pages/ver-grupo-familiar/ver-grupo-familiar';
+import { GestionBanner } from './pages/gestion-banner/gestion-banner';
+import { JuegosGratis } from './pages/juegos-gratis/juegos-gratis';
+import { JuegosRecientes } from './pages/juegos-recientes/juegos-recientes';
+import { BuscarJuego } from './pages/buscar-juego/buscar-juego';
+import { ListaEmpresas } from './pages/lista-empresas/lista-empresas';
+import { CatalogoEmpresa } from './pages/catalogo-empresa/catalogo-empresa';
+import { JuegoPorCategoria } from './pages/juego-por-categoria/juego-por-categoria';
 
 export const routes: Routes = [
   { path: '', component: LogIn },          
@@ -62,10 +69,18 @@ export const routes: Routes = [
   { path: 'biblioteca', component: Biblioteca, canActivate: [authGuard] },
   { path: 'gestionar-comision', component: GestionComision, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']} },
   { path: 'editar-empresa/:idEmpresa', component: EditarEmpresa, canActivate: [authGuard, roleGuard], data: { roles: ['EMPRE']} },
-
   { path: 'calificacion-comentario/:idJuego', component: CalificacionComentarios, canActivate: [authGuard] },
 
   { path: 'gestion-grupos-familiares', component: GestionGruposFamiliares, canActivate: [authGuard] },
   { path: 'crear-grupo', component: CrearGrupo, canActivate: [authGuard] },
   { path: 'ver-grupo-familiar/:idGrupo', component: VerGrupoFamiliar, canActivate: [authGuard] },
+  { path: 'gestion-banner', component:GestionBanner, canActivate: [authGuard, roleGuard], data: { roles: ['ADMIN']}},
+
+  {path: 'juegos-gratis', component: JuegosGratis, canActivate: [authGuard]},
+  {path: 'juegos-recientes', component: JuegosRecientes, canActivate: [authGuard]},
+  {path: 'buscar-juego', component: BuscarJuego, canActivate: [authGuard]},
+  {path: 'lista-empresas', component:ListaEmpresas, canActivate: [authGuard]},
+
+  {path: 'catalogo-empresa/:idEmpresa', component: CatalogoEmpresa, canActivate: [authGuard]},
+  {path: 'juegos-por-categoria', component: JuegoPorCategoria, canActivate: [authGuard]}
 ];

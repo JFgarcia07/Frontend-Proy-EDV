@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Header } from '../../components/header/header';
 import { RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-gestion-empresa-desarrolladora',

@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="container py-5">
+    <div
+        class="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded shadow-sm border-start border-5 border-primary">
+        <div>
+            <h2 class="h4 mb-0 text-primary fw-bold">Juegos por Categoría</h2>
+            <small class="text-muted">Selecciona una categoría para ver su catálogo</small>
+        </div>
+    </div>
+
+    <div class="card shadow border-0 mb-4">
+        <div class="card-body">
+            <label class="form-label fw-semibold">Categoría</label>
+            <select class="form-select" [(ngModel)]="idCategoriaSeleccionada" (change)="onCategoriaChange()">
+                <option value="">-- Selecciona una categoría --</option>
+                @for (c of categorias; track c.idCategoria) {
+                <option [value]="c.idCategoria">{{ c.nombreCategoria }}</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    @if (!idCategoriaSeleccionada) {
+    <div class="text-center text-muted py-4">
+        Selecciona una categoría para ver los juegos.
+    </div>
+    } @else {
+
+    @if (juegos.length === 0) {
+    <div class="text-center text-muted py-4">
+        No hay juegos aprobados en esta categoría.
+    </div>
+    } @else {
+    <div class="row g-3">
+        @for (juego of juegos; track juego.idJuego) {
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 hover-card">
+
+                <div class="position-relative">
+                    <img [src]="juego.imagen || 'assets/img/placeholder.jpg'" class="card-img-top" [alt]="juego.titulo"
+                        style="height: 520px; object-fit: cover;">
+
+                    <span class="position-absolute top-0 end-0 badge bg-success m-2 fs-6 shadow">
+                        Q{{ juego.precio }} </span>
+                </div>
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold text-dark">{{ juego.titulo }}</h5>
+
+                    <p class="card-text text-muted flex-grow-1"
+                        style="display: -webkit-box;  -webkit-box-orient: vertical; overflow: hidden;">
+                        {{ juego.descripcion }}
+                    </p>
+
+                    <div class="mt-3">
+                        <a [routerLink]="['/ver-mas-juego', juego.idJuego]" class="btn btn-outline-primary w-100">
+                            <i class="bi bi-eye"></i> Ver más
+                        </a>
+                    </div>
+                    <div class="mt-3">
+                        <a [routerLink]="['/proceso-venta', juego.idJuego]" class="btn btn-outline-primary w-100">
+                            <i class="bi bi-eye"></i> Comprar Videojuego
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+
+    }
+</div>
